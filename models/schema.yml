@@ -12,7 +12,7 @@ models:
       - name: first_order_date
         description: NULL when a customer has not yet placed an order.
 
-  - name: stg_customers
+  - name: dbt_stg_jaffle_shop__customers
     description: This model cleans up customer data
     columns:
       - name: customer_id
@@ -21,7 +21,7 @@ models:
           - unique
           - not_null
 
-  - name: stg_orders
+  - name: dbt_stg_jaffle_shop__orders
     description: This model cleans up order data
     columns:
       - name: order_id
@@ -39,5 +39,5 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: ref('stg_customers')
+                to: ref('dbt_stg_jaffle_shop__customers')
                 field: customer_id
